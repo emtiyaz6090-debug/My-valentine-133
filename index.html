@@ -142,16 +142,53 @@
             justify-content: center;
         }
 
-    <section id="music" class="music-section reveal">
-    <div class="glass-card spotify-container">
-        <h2 style="margin-bottom: 20px; font-weight: 600;">Our Anthem ✨</h2>
+<section id="music" class="reveal">
+    <div class="glass-card" style="text-align: center; position: relative; overflow: hidden;">
+        <h2 style="margin-bottom: 25px; font-weight: 500; letter-spacing: 1px;">Our Anthem ✨</h2>
         
-        <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/track/0T5iIrXA4p5GsubkhuBIKV?si=4xK8eKHwTvONowePLUvc1g" 
-                width="100%" height="152" frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
+        <div id="player-ui">
+            <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <button id="custom-play-trigger" style="background: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s;">
+                    <span style="color: #000; font-size: 20px; margin-left: 4px;">▶</span>
+                </button>
+            </div>
+            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 5px;">Until I Found You</p>
+            <p style="font-size: 0.8rem; color: var(--apple-secondary); margin-bottom: 20px;">Stephen Sanchez</p>
+        </div>
+
+        <div id="spotify-container" style="display: none; animation: fadeInUp 0.5s ease;">
+            <iframe id="sp-frame" src="" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 15px;"></iframe>
+            <button onclick="resetPlayer()" style="background: none; border: none; color: var(--apple-secondary); font-size: 0.7rem; margin-top: 10px; cursor: pointer; text-decoration: underline;">Stop Music</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    const playTrigger = document.getElementById('custom-play-trigger');
+    const playerUI = document.getElementById('player-ui');
+    const spotifyContainer = document.getElementById('spotify-container');
+    const spFrame = document.getElementById('sp-frame');
+
+    // গানটির স্পটিফাই এমবেড লিংক
+    const songEmbedUrl = "https://open.spotify.com/track/0T5iIrXA4p5GsubkhuBIKV?si=ieTAw21KRC6x7Yogd8e2kg";
+
+    playTrigger.addEventListener('click', () => {
+        // UI হাইড করা এবং গান লোড করা
+        playerUI.style.display = 'none';
+        spotifyContainer.style.display = 'block';
+        spFrame.src = songEmbedUrl;
+    });
+
+    function resetPlayer() {
+        spFrame.src = "";
+        playerUI.style.display = 'block';
+        spotifyContainer.style.display = 'none';
+    }
+
+    // বাটন ইফেক্ট
+    playTrigger.addEventListener('mousedown', () => playTrigger.style.transform = 'scale(0.9)');
+    playTrigger.addEventListener('mouseup', () => playTrigger.style.transform = 'scale(1)');
+</script>
         </iframe>
 
     </div>
