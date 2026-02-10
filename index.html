@@ -158,37 +158,48 @@
 
         <div id="spotify-container" style="display: none; animation: fadeInUp 0.5s ease;">
             <iframe id="sp-frame" src="" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius: 15px;"></iframe>
-            <button onclick="resetPlayer()" style="background: none; border: none; color: var(--apple-secondary); font-size: 0.7rem; margin-top: 10px; cursor: pointer; text-decoration: underline;">Stop Music</button>
-        </div>
+            <button onclick="resetPlayer()" style="background: none; </style>
+</head>
+
+<body>
+
+<!-- 🎶 MUSIC SECTION START -->
+<section id="music" style="padding: 80px 20px; text-align: center;">
+    <div style="
+        max-width: 420px;
+        margin: auto;
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 25px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        animation: fadeInUp 1.2s ease forwards;
+    ">
+        <p style="font-size:14px; letter-spacing:1px; color:rgba(255,255,255,0.6); margin-bottom:12px;">
+            🎶 Our Song
+        </p>
+
+        <h2 style="font-size:22px; font-weight:600; margin-bottom:18px;">
+            Until I Found You 💖
+        </h2>
+
+        <iframe
+            style="border-radius:14px"
+            src="https://open.spotify.com/embed/track/0T5iIrXA4p5GsubkhuBIKV"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+
+        <p style="font-size:13px; color:rgba(255,255,255,0.55); margin-top:14px;">
+            Tap play & feel us ✨💫
+        </p>
     </div>
 </section>
-
-<script>
-    const playTrigger = document.getElementById('custom-play-trigger');
-    const playerUI = document.getElementById('player-ui');
-    const spotifyContainer = document.getElementById('spotify-container');
-    const spFrame = document.getElementById('sp-frame');
-
-    // গানটির স্পটিফাই এমবেড লিংক
-    const songEmbedUrl = "https://open.spotify.com/track/0T5iIrXA4p5GsubkhuBIKV?si=ieTAw21KRC6x7Yogd8e2kg";
-
-    playTrigger.addEventListener('click', () => {
-        // UI হাইড করা এবং গান লোড করা
-        playerUI.style.display = 'none';
-        spotifyContainer.style.display = 'block';
-        spFrame.src = songEmbedUrl;
-    });
-
-    function resetPlayer() {
-        spFrame.src = "";
-        playerUI.style.display = 'block';
-        spotifyContainer.style.display = 'none';
-    }
-
-    // বাটন ইফেক্ট
-    playTrigger.addEventListener('mousedown', () => playTrigger.style.transform = 'scale(0.9)');
-    playTrigger.addEventListener('mouseup', () => playTrigger.style.transform = 'scale(1)');
-</script>
+<!-- 🎶 MUSIC SECTION END -->;
         </iframe>
 
     </div>
